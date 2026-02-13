@@ -1,7 +1,10 @@
-package com.projeto.cadastro;
+package com.projeto.cadastro.Ninjas;
 
 
+import com.projeto.cadastro.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro")
@@ -14,6 +17,12 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+    private List<MissoesModel> missoes;
+
+    @ManyToOne
+    @JoinColumn(name= "missoes_id") //foreign key
+    private MissoesModel missoesModel;
+
 
     public NinjaModel() {
     }
